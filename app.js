@@ -46,13 +46,7 @@ function processRow(rowDiv, parentRowDiv) {
       parentRowDiv.childNodes[0]
 
     let ruleMatch = setActiveOnRuleMatch
-      .bind(
-        null,
-        target,
-        leftSibling,
-        prevSelf,
-        rightSibling
-      )
+      .bind(null, target, leftSibling, prevSelf, rightSibling)
 
     ruleMatch([1,1,1], false)
     ruleMatch([1,1,0], true)
@@ -65,14 +59,7 @@ function processRow(rowDiv, parentRowDiv) {
   }
 }
 
-function setActiveOnRuleMatch(
-  target,
-  leftSibling,
-  prevSelf,
-  rightSibling,
-  rule,
-  outcome
-) {
+function setActiveOnRuleMatch(target, leftSibling, prevSelf, rightSibling, rule, outcome) {
   let matchesRule = 
     state(leftSibling) === rule[0] &&
     state(prevSelf) === rule[1] &&
